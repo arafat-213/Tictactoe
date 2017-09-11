@@ -1,5 +1,6 @@
 package com.svit.ce.aavishkar.tictactoe;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -195,6 +196,16 @@ public class MainActivity extends AppCompatActivity {
                 eight.setText("");
                 nine.setText("");
 
+                one.setTextColor(Color.BLACK);
+                two.setTextColor(Color.BLACK);
+                three.setTextColor(Color.BLACK);
+                four.setTextColor(Color.BLACK);
+                five.setTextColor(Color.BLACK);
+                six.setTextColor(Color.BLACK);
+                seven.setTextColor(Color.BLACK);
+                eight.setTextColor(Color.BLACK);
+                nine.setTextColor(Color.BLACK);
+
                 // board[] = "0123456789".toCharArray();         I have no idea why it's giving an error.
             }
         });
@@ -220,8 +231,18 @@ public class MainActivity extends AppCompatActivity {
     public void display()
     {
         i=checkresult();
-        if(i==1)
+        if(i==1) {
+            one.setClickable(false);
+            two.setClickable(false);
+            three.setClickable(false);
+            four.setClickable(false);
+            five.setClickable(false);
+            six.setClickable(false);
+            seven.setClickable(false);
+            eight.setClickable(false);
+            nine.setClickable(false);
             Toast.makeText(getApplicationContext(),"Player "+--player+" Won the match",Toast.LENGTH_SHORT).show();
+        }
         else if(i==0)
             Toast.makeText(getApplicationContext(),"Game draw",Toast.LENGTH_SHORT).show();
     }
@@ -251,30 +272,68 @@ public class MainActivity extends AppCompatActivity {
 
     public int checkresult()
     {
-        if (board[1] == board[2] && board[2] == board[3])
-
+        if (board[1] == board[2] && board[2] == board[3]) {
+            one.setTextColor(Color.BLUE);
+            two.setTextColor(Color.BLUE);
+            three.setTextColor(Color.BLUE);
             return 1;
-        else if (board[4] == board[5] && board[5] == board[6])
+        }
 
+        else if (board[4] == board[5] && board[5] == board[6]){
+            four.setTextColor(Color.BLUE);
+            five.setTextColor(Color.BLUE);
+            six.setTextColor(Color.BLUE);
             return 1;
+        }
+
         else if (board[7] == board[8] && board[8] == board[9])
 
+        {
+            seven.setTextColor(Color.BLUE);
+            eight.setTextColor(Color.BLUE);
+            nine.setTextColor(Color.BLUE);
             return 1;
+        }
         else if (board[1] == board[4] && board[4] == board[7])
 
+        {
+            one.setTextColor(Color.BLUE);
+            four.setTextColor(Color.BLUE);
+            seven.setTextColor(Color.BLUE);
             return 1;
+        }
         else if (board[2] == board[5] && board[5] == board[8])
 
+        {
+            two.setTextColor(Color.BLUE);
+            five.setTextColor(Color.BLUE);
+            eight.setTextColor(Color.BLUE);
             return 1;
+        }
         else if (board[3] == board[6] && board[6] == board[9])
 
+        {
+            three.setTextColor(Color.BLUE);
+            six.setTextColor(Color.BLUE);
+            nine.setTextColor(Color.BLUE);
             return 1;
+        }
         else if (board[1] == board[5] && board[5] == board[9])
 
+        {
+            one.setTextColor(Color.BLUE);
+            five.setTextColor(Color.BLUE);
+            nine.setTextColor(Color.BLUE);
             return 1;
+        }
         else if (board[3] == board[5] && board[5] == board[7])
 
+        {
+            three.setTextColor(Color.BLUE);
+            five.setTextColor(Color.BLUE);
+            seven.setTextColor(Color.BLUE);
             return 1;
+        }
         else if (board[1] != '1' && board[2] != '2' && board[3] != '3'
                 && board[4] != '4' && board[5] != '5' && board[6] != '6'
                 && board[7] != '7' && board[8] != '8' && board[9] != '9')
